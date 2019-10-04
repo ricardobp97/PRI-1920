@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc2/files/PR.dtd">
+<project title="Project Record" date="04/10/2019">
+    <info>
+        <keyName>PRI_MIEI2019_TPC2</keyName>
+        <title>TP2: DTD, XML e Querys a XML</title>
+        <subtitle>Relatório inserido nos trabalhos práticos da cadeira de PRI de MIEI 2019/20</subtitle>
+        <beginDate>30/09/2019</beginDate>
+        <endDate>04/10/2019</endDate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">
+            <text>José Carlos Ramalho</text>
+        </supervisor>
+    </info>
+    <workteam>
+        <person name="Ricardo Pereira" number="A77045" email="a77045@alunos.uminho.pt"/>
+    </workteam>
+    <abstract>
+        <paragraph>
+            <text>Foi desenvolvido um DTD para a criação de um XML que servirá para a entrega dos TPCs da UC num formato genérico.</text>
+        </paragraph>
+        <paragraph>
+            <text>A segunda parte do TPC foi a resolução de duas fichas práticas, na qual era pretendido que fossemos capazes de responder a um conjunto de querys relativamente a um ficheiro XML.</text>
+        </paragraph>
+    </abstract>
+    <deliverables>
+        <link url="//files/PR.dtd"></link>
+        <link url="files/PR.xml"></link>
+        <link url="files/agenda.txt"></link>
+        <link url="files/arq.txt"></link>
+    </deliverables>
+</project>

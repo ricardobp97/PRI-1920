@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc2/PR.dtd">
+<project title="" date="">
+    <info>
+        <keyName></keyName>
+        <title></title>
+        <subtitle></subtitle>
+        <beginDate></beginDate>
+        <endDate></endDate>
+        <supervisor url="">
+            <text></text>
+        </supervisor>
+    </info>
+    <workteam>
+        <person name="" number="" email=""/>
+    </workteam>
+    <abstract>
+        <paragraph>
+            <text></text>
+        </paragraph>
+    </abstract>
+    <deliverables>
+        <link url=""></link>
+    </deliverables>
+</project>

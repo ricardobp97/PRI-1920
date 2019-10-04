@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT project (info,workteam,abstract,deliverables) >
+<!ATTLIST project
+            title CDATA #REQUIRED
+            date CDATA #REQUIRED>
+
+<!ELEMENT info (keyName,title,subtitle?,beginDate,endDate,supervisor) >
+<!ELEMENT workteam (person+) >
+<!ELEMENT abstract (paragraph+) >
+<!ELEMENT deliverables (link+) >
+
+<!ELEMENT keyName (#PCDATA) >
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT subtitle (#PCDATA) >
+<!ELEMENT beginDate (#PCDATA) >
+<!ELEMENT endDate (#PCDATA) >
+<!ELEMENT supervisor (text) >
+
+<!ATTLIST supervisor
+                url CDATA #REQUIRED>
+
+<!ELEMENT person EMPTY >
+<!ATTLIST person
+            name CDATA #REQUIRED
+            number CDATA #REQUIRED
+            email CDATA #REQUIRED>
+
+<!ELEMENT paragraph (text | bold | italic) >
+<!ELEMENT text (#PCDATA | bold | italic)* >
+<!ELEMENT bold (#PCDATA | italic)* >
+<!ELEMENT italic (#PCDATA | bold)* >
+
+<!ELEMENT link (#PCDATA) >
+<!ATTLIST link
+            url CDATA #REQUIRED>
