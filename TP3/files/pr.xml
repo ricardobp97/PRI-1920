@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc3/files/pr.dtd">
+<pr>
+    <meta>
+        <keyname></keyname>
+        <title></title>
+        <subtitle></subtitle>
+        <bdate></bdate>
+        <edate></edate>
+        <supervisor>
+            <name></name>
+            <email></email>
+            <homepage></homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier></identifier>
+            <name></name>
+            <email></email>
+            <photo path=""/>
+        </member>
+    </workteam>
+    <abstract>
+        <p></p>
+    </abstract>
+    <deliverables>
+        <deliverable path=""></deliverable>
+    </deliverables>
+</pr>
