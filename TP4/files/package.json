@@ -1,0 +1,11 @@
+{
+  "name": "servidor-musicas",
+  "version": "1.0.0",
+  "description": "servidor para musicas",
+  "main": "MusicServer.js",
+  "scripts": {
+    "start": "node MusicServer"
+  },
+  "author": "Ricardo Pereira",
+  "license": "ISC"
+}

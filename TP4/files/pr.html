@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><html>
+   <head>
+      <title>Project Record</title>
+      <meta charset="UTF-8"></meta>
+   </head>
+   <body>
+      <h1 style="text-align:center">Project Record</h1>
+      <hr></hr>
+      
+      <table width="100%">
+         <tr>
+            <td width="50%">
+               <p>
+                  <b>Key Name: </b>PRI_MIEI2019_TPC4
+               </p>
+               <p>
+                  <b>Title: </b>Servidor em NodeJS
+               </p>
+               <p>
+                  <b>Subtitle: </b>Relatório inserido nos trabalhos práticos da cadeira de PRI de MIEI 2019/20
+               </p>
+            </td>
+            <td>
+               <p>
+                  <b>Begin Date: </b>21/10/2019
+               </p>
+               <p>
+                  <b>End Date: </b>25/10/2019
+               </p>
+               <p>
+                  <b>Supervisor: </b>
+                  <a href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</a>
+               </p>
+            </td>
+         </tr>
+      </table>
+      <hr></hr>
+      
+      <hr></hr>
+      <h3>WorkTeam:</h3>
+      <ol>
+         
+         <li>
+            <p>A77045 - 
+               <b>Ricardo Barros Pereira</b> - 
+               <a href="a77045@alunos.uminho.pt">a77045@alunos.uminho.pt</a> - 
+               <img src="./foto.jpg" alt="Photo" width="7%" align="middle" style="cursor: pointer" onclick="window.open('./foto.jpg','_blank');"></img>
+            </p>
+         </li>
+         
+      </ol>
+      <hr></hr>
+      
+      <hr></hr>
+      <h2>Abstract:</h2>
+      
+      <p>O objetivo para este trabalho de casa era criar um 
+         <b>Servidor Web</b> para receber pedidos do tipo "/musica/X", em que o passamos em X o número da música
+         que queremos.
+         O servidor deveria dar como resposta o 
+         <b>HTML</b> correspondente á música.
+      </p>
+      
+      <p>Numa primeira fase foi construída uma 
+         <i>stylesheet</i> para transformar o arquivo de músicas em vários ficheiros 
+         <b>XML</b>, cada um contendo informação relativa a uma música.
+         O nome dado aos ficheiros é da seguinte forma "docX.xml", sendo que cada música terá
+         um número atribuído no seu nome.
+      </p>
+      
+      <p>De seguida foí construída uma 
+         <i>stylesheet</i> para transformar cada ficheiro de música em 
+         <b>HTML</b>.
+      </p>
+      
+      <p>Por fim, foi criado o Servidor em 
+         <b>Node.js</b> para dar resposta aos pedidos na forma especificada em cima.
+         O servidor recebe o pedido e aplica a 
+         <i>stylesheet</i> á musica que corresponde ao número do pedido, e dá como resposta o 
+         <b>HTML</b> correspondente.
+      </p>
+      
+      <hr></hr>
+      
+      <hr></hr>
+      <h3>Deliverables:</h3>
+      <ul>
+         
+         <li>
+            <a href="./pr.html">Project Record (HTML)</a>
+         </li>
+         
+         <li>
+            <a href="./dataset.xsl">Stylesheet arq-son-EVO (XSL)</a>
+         </li>
+         
+         <li>
+            <a href="./doc2html.xsl">Stylesheet Docs (XSL)</a>
+         </li>
+         
+         <li>
+            <a href="./MusicServer.js">Servidor Web Músicas</a>
+         </li>
+         
+      </ul>
+      <hr></hr>
+      
+   </body>
+</html>
