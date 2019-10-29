@@ -1,0 +1,41 @@
+extends layout
+block content
+    .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal
+                h4 Inserir um Aluno
+            .w3-container
+                form.w3-container(action='/alunos' method='POST')
+                    label
+                        b Identificador
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='identificador')
+                    label
+                        b Nome
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='nome')
+                    label
+                        b Curso
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='curso')
+                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Adicionar')
+        .w3-card-4
+            header.w3-container.w3-teal
+                h4 Lista de Alunos
+            .w3-container
+                table.w3-table-all
+                    tr
+                        th Identificador
+                        th Nome
+                        th Curso
+                        th Notas
+                        th Remover
+                    each i in lista
+                        tr
+                            td= i.identificador
+                            td= i.nome
+                            td= i.curso
+                            td
+                                form.w3-container(action=`/alunos/${i.identificador}` method='GET')
+                                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Ver Notas')
+                            td
+                                button.w3-button.w3-circle.w3-blue-grey(onclick="apagaAluno('" + i.identificador + "')") -
+            footer.w3-container.w3-teal
+                adress Gerado por Gestão de Alunos App

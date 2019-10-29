@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc3/files/pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRI_MIEI2019_TPC5</keyname>
+        <title>Servidor em NodeJS para Gestão de Alunos e Notas</title>
+        <subtitle>Relatório inserido nos trabalhos práticos da cadeira de PRI de MIEI 2019/20</subtitle>
+        <bdate>28/10/2019</bdate>
+        <edate>29/10/2019</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www4.di.uminho.pt/~jcr/</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>A77045</identifier>
+            <name>Ricardo Barros Pereira</name>
+            <email>a77045@alunos.uminho.pt</email>
+            <photo path="./foto.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>O objetivo para este trabalho de casa era criar um <b>Servidor Web</b> utilizando a <b>Framework Express</b> que permitisse gerir alunos e as suas notas.</p>
+        <p>O Servidor responde aos seguintes pedidos:</p>
+        <p><b>GET:</b> /alunos e /alunos/:idAluno</p>
+        <p><b>POST:</b> /alunos e /alunos/:idAluno/notas</p>
+        <p><b>DELETE:</b> /alunos/:idAluno e /alunos/:idAluno/notas/:indicador</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="./gestor-alunos/">Servidor Web</deliverable>
+    </deliverables>
+</pr>

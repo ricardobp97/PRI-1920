@@ -1,0 +1,35 @@
+extends layout
+block content
+    .w3-container
+        header
+            h3= aluno.nome
+        .w3-card-4
+            header.w3-container.w3-teal
+                h4 Adicionar um Indicador
+            .w3-container
+                form.w3-container(action=`/alunos/${aluno.identificador}/notas` method='POST')
+                    label
+                        b Indicador
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='indicador')
+                    label
+                        b Nota
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='nota')
+                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Adicionar')
+        .w3-card-4
+            header.w3-container.w3-teal
+                h3 Lista de Notas
+            .w3-container
+                table.w3-table-all
+                    tr
+                        th Indicador
+                        th Nota
+                        th Remover
+                    each i in aluno.notas
+                        tr
+                            td= i.indicador
+                            td= i.nota
+                            td
+                                button.w3-button.w3-circle.w3-blue-grey(onclick="apagaNota('" + aluno.identificador + "," + i.indicador + "')") -
+            footer.w3-container.w3-teal
+                adress Gerado por Gestão de Alunos App:
+                    a(href='/alunos')  Voltar á página anterior
