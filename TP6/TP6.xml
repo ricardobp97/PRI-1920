@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc3/files/pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRI_MIEI2019_TPC6</keyname>
+        <title>Servidor em NodeJS para Gestão de Filmes</title>
+        <subtitle>Relatório inserido nos trabalhos práticos da cadeira de PRI de MIEI 2019/20</subtitle>
+        <bdate>04/11/2019</bdate>
+        <edate>07/11/2019</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www4.di.uminho.pt/~jcr/</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>A77045</identifier>
+            <name>Ricardo Barros Pereira</name>
+            <email>a77045@alunos.uminho.pt</email>
+            <photo path="./foto.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>O objetivo para este trabalho de casa era criar um <b>Servidor Web</b> utilizando a <b>Framework Express</b> que permitisse gerir os filmes disponoveis num dataset disponibilizado pelo supervisor. 
+            O dataset foi previamente carregado para uma base de dados <b>MongoDB</b>.</p>
+        <p>O Servidor conecta-se á base de dados através do módulo <b>mongoose</b> e disponibiliza uma <b>API</b> de dados capaz de responder a pedidos <b>HTTP</b>.
+        O Servidor apresenta uma interface que mostra ao utilizador a listagem dos filmes, em que podemos filtrar a pesquisa por ano, actor ou género. São apresentados os filmes e os respetivos anos em que foram lançados.
+        É possivel ainda entrar na página de cada filme onde são apresentados os actores e os géneros do filme.</p>
+        <p>O Servidor dá a possibilidade também de adicionar novos filmes, e por sua vez, actores e géneros ao mesmo. Dá também a possibilidade de alteração dos filmes e de remoção da base de dados, assim também como dos actores e dos géneros.</p>
+        <p>É possivel também ver a lista dos actores, ordenada por número de filmes e apresentando esse valor, de forma a mostrar um Top de actores.
+            Tanto esta funcionalidade como os filtros de pesquisa são extras acrescentados aos objetivos para este trabalho de casa.</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="./app-filmes/">Servidor Web</deliverable>
+    </deliverables>
+</pr>

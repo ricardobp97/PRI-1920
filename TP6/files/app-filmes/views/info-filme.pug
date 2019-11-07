@@ -1,0 +1,47 @@
+extends layout
+block content
+    .w3-container
+            header.w3-container.w3-teal
+                h1= filme.title
+            .w3-container
+                table.w3-table-all
+                    tr.w3-container
+                        th Lista de Actores:
+                    each a in filme.cast
+                        tr.w3-container
+                            td= a
+                            td
+                                form.w3-container(action=`/filmes/actor/${filme._id}/${a}` method='GET')
+                                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Info')
+                            td
+                                button.w3-button.w3-circle.w3-blue-grey(onclick="apagaActor('" + filme._id + ',' + a + "')") Apagar
+            .w3-container
+                table.w3-table-all
+                    tr.w3-container
+                        th Lista de Géneros:
+                    each g in filme.genres
+                        tr.w3-container
+                            td= g
+                            td
+                                form.w3-container(action=`/filmes/genero/${filme._id}/${g}` method='GET')
+                                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Info')
+                            td
+                                button.w3-button.w3-circle.w3-blue-grey(onclick="apagaGenero('" + filme._id + ',' + g + "')") Apagar
+    .w3-container
+            header.w3-container.w3-teal
+                h3 Inserir
+            .w3-container
+                form.w3-container(action=`/filmes/actor/${filme._id}` method='POST')
+                    label
+                        b Actor
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='cast')
+                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Adicionar')
+            .w3-container
+                form.w3-container(action=`/filmes/genero/${filme._id}` method='POST')
+                    label
+                        b Género
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='genres')
+                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Adicionar')
+            footer.w3-container.w3-teal
+                adress Gerado por Gestão de Filmes App:
+                    a(href='/filmes')  Voltar á página anterior

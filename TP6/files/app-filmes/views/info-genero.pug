@@ -1,0 +1,16 @@
+extends layout
+block content
+    .w3-container
+        header.w3-container.w3-teal
+            h3 Filmes por Género
+        .w3-container
+            table.w3-table-all
+                tr
+                    th Género
+                    th Número de Filmes
+                tr
+                    td= name
+                    td= num
+        footer.w3-container.w3-teal
+            adress Gerado por Gestão de Filmes App:
+                a(href=`/filmes/${filme}`)  Voltar á página anterior

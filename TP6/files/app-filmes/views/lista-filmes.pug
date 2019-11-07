@@ -1,0 +1,47 @@
+extends layout
+block content
+    .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal
+                h2 Lista de Filmes
+            table.w3-table-all
+                tr
+                    td
+                        form.w3-container(action='/filmes/ano' method='POST')
+                            label
+                                b Pesquisa por Ano:
+                            input.w3-input.w3-border.w3-light-grey(type='text' name='year')
+                            input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Pesquisar')
+                        form.w3-container(action='/filmes' method='GET')
+                            input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Todos')
+                    td
+                        form.w3-container(action='/filmes/actor' method='POST')
+                            label
+                                b Pesquisa por Actor:
+                            input.w3-input.w3-border.w3-light-grey(type='text' name='actor')
+                            input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Pesquisar')
+                    td
+                        form.w3-container(action='/filmes/genero' method='POST')
+                            label
+                                b Pesquisa por Género:
+                            input.w3-input.w3-border.w3-light-grey(type='text' name='genero')
+                            input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Pesquisar')
+            .w3-container
+                table.w3-table-all
+                    tr
+                        th Título
+                        th Ano
+                        th Info
+                        th Remover
+                    each i in lista
+                        tr
+                            td= i.title
+                            td= i.year
+                            td
+                                form.w3-container(action=`/filmes/${i._id}` method='GET')
+                                    input.w3-btn.w3-border.w3-blue-grey(type='submit' value='Ver Informações')
+                            td
+                                button.w3-button.w3-circle.w3-blue-grey(onclick="apagaFilme('" + i._id + "')") -
+            footer.w3-container.w3-teal
+                adress Gerado por Gestão de Filmes App:
+                    a(href='/')  Voltar á página anterior
