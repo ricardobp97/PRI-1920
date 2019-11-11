@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/Admin/Desktop/Universidade/Mestrado/PLC/PRI/TPC%27s/tpc3/files/pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRI_MIEI2019_TPC7</keyname>
+        <title>Servidor em NodeJS: API de Dados</title>
+        <subtitle>Relatório inserido nos trabalhos práticos da cadeira de PRI de MIEI 2019/20</subtitle>
+        <bdate>11/11/2019</bdate>
+        <edate>11/11/2019</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www4.di.uminho.pt/~jcr/</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>A77045</identifier>
+            <name>Ricardo Barros Pereira</name>
+            <email>a77045@alunos.uminho.pt</email>
+            <photo path="./foto.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>O objetivo para este trabalho de casa era criar um <b>Servidor Web</b> utilizando a <b>Framework Express</b> que disponibilizasse uma <b>API</b> de Dados sobre o conteúdo das Obras.</p>
+        <p>O ficheiro que continha as obras era um ficheiro <b>XML</b>, pelo que foi necessário efetuar uma conversão para <b>JSON</b>, para que pudessemos importar o seu conteúdo para a base de dados no <b>MongoDB</b>.</p>
+        <p>O Servidor disponibliza a seguinte <b>API</b> de Dados capaz de mostrar as obras, opcionalmente, filtradas por ano, compositor e periodo, e também os compositores e as obras de um determinado compositor.</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="./obras.xml">Dataset XML</deliverable>
+        <deliverable path="./obras.json">Dataset JSON</deliverable>
+        <deliverable path="./app-obras/">Servidor Web</deliverable>
+    </deliverables>
+</pr>
