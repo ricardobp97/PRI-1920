@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-blue
+      h2 Novo Ficheiro
+    
+    form.w3-container(action="/api/ficheiros" method="post" enctype="multipart/form-data")
+      .w3-container(id='lista')
+        .w3-container(id='f1')
+          .w3-cell-row
+            label.w3-cell Descrição:
+            input.w3-input.w3-cell.w3-border(type="text" name="desc")
+          .w3-cell-row
+            label.w3-cell Ficheiro:
+            input.w3-input.w3-cell(type="file" name="ficheiro")
+      button.w3-button.w3-round-large.w3-indigo(id='mais1') +
+      input.w3-input(type="submit" value="Enviar")
+
+  .w3-card-4.modal(id='display')
+
+  .w3-card-4
+    header.w3-container.w3-blue
+      h1 Lista de Ficheiros armazenados
+    
+    .w3-container
+      if (lista.length > 0)
+        table.w3-table-all
+          tr
+            th Data
+            th Descrição
+            th Tipo
+            th Path
+            th Tamanho
+          each i in lista
+            tr(id ='i_' + i._id, class='ficheiro', onclick="show_me(this," + JSON.stringify(i) + ")")
+              td= i.data
+              td= i.desc
+              td= i.mimetype
+              td= i.name
+              td= i.size
+      else
+        p Não tem nenhum ficheiro armazenado
+
+  footer.w3-container.w3-blue
+    adress Gerado por Gestor de Ficheiros
