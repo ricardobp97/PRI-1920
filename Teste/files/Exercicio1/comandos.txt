@@ -1,0 +1,7 @@
+1. Importar  o dataset para o mongo:
+	- mongoimport -d teste -c pubs --jsonArray "path/jcrpubs.json"
+
+2. Dentro da diretoria /api-pubs:
+	- npm start
+
+Servidor estará disponivel em http://localhost:3000/

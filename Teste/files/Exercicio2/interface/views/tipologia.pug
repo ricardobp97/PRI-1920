@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .w3-container
+    .w3-card-4
+        header.w3-container.w3-teal
+            h1= tip.designacao
+        h3
+            b Sigla: 
+            text= tip.sigla
+        h3
+            b Estado: 
+            text= tip.estado
+        h3 Lista de Entidades: 
+        table.w3-table-all
+            tr
+                th Entidade
+                th Sigla
+                th Id
+            each i in elem
+                tr
+                    td= i.designacao
+                    td= i.sigla
+                    td= i.id
+        h3 Processos em que é Dona: 
+        table.w3-table-all
+            each e in dono
+                tr
+                    td= e.titulo
+        h3 Processos em que é Participante: 
+        table.w3-table-all
+            each p in participa
+                tr
+                    td= p.titulo
+        footer.w3-container.w3-teal
+            adress Gerado por Ricardo Pereira:
+                a(href='/')  Voltar á página inicial

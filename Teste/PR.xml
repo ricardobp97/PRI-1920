@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pr>
+    <meta>
+        <keyname>Ficha pri2020-e1</keyname>
+        <title>Avaliação: Desenvolvimento de Aplicações Web</title>
+        <subtitle>Relatório do Teste realizado em PRI.</subtitle>
+        <bdate>13/01/2020</bdate>
+        <edate>13/01/2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www4.di.uminho.pt/~jcr/</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>A77045</identifier>
+            <name>Ricardo Barros Pereira</name>
+            <email>a77045@alunos.uminho.pt</email>
+            <photo path="./foto.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>No primeiro exercicio foi implementada uma API de dados capaz de responder a todos os pedidos especificados no enunciado. A consistência de dados foi feita em MongoDB e para isso o dataset disponibilizado foi tratado para ser importado. De seguida implementou-se o servidor em NodeJS. Para que consiga executar e testar esta API de dados basta seguir as instruções que estão no ficheiro de comandos.</p>
+        <p>No segundo exercicio foram efetuados os pedidos necessários através do postman à API fornecida para obter a resposta às perguntas colocadas. Pode verificar as respostas no ficheiro de respostas. De seguida foi implementada a Interface de acordo com o enunciado. Para testar basta executar o comando 'npm start' dentro da diretoria /Exercicio2/interface.</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="./Exercicio1/jcrpubs.json">Dataset Tratado</deliverable>
+        <deliverable path="./Exercicio1/comandos.txt">Comandos Exercicio 1</deliverable>
+        <deliverable path="./Exercicio1/api-pubs/">Servidor API Exercicio 1</deliverable>
+        <deliverable path="./Exercicio2/respostas_postman.txt">Respostas Exercicio 2</deliverable>
+        <deliverable path="./Exercicio2/interface/">Servidor Interface Exercicio 2</deliverable>
+    </deliverables>
+</pr>
