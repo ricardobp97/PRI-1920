@@ -1,0 +1,46 @@
+extends layout
+ 
+block content
+  .w3-container.w3-center.w3-jumbo
+    header.w3-container.w3-teal
+      h1 Informatics Social Network
+  .w3-container.w3-large
+    .w3-bar.w3-dark-grey.w3-mobile
+      .w3-bar-item
+        form.w3-container(action='/sobre', method='GET')
+          input.w3-button.w3-wide(type= 'submit', value= 'Sobre')
+      .w3-bar-item
+        form.w3-container(action='/contactos', method='GET')
+          input.w3-button.w3-wide(type= 'submit', value= 'Contactos')
+      .w3-bar-item.w3-right
+        form.w3-container(action='/registo', method='GET')
+          input.w3-button.w3-wide(type= 'submit', value= 'Registo')
+      .w3-bar-item.w3-right
+        form.w3-container(action='/login', method='GET')
+          input.w3-button.w3-wide(type= 'submit', value= 'Login')
+    br
+    .w3-container
+      .w3-card
+        header.w3-container.w3-grey
+          h2.w3-center
+            b Sobre
+      br
+      .w3-container
+        ul.w3-ul
+          li Rede Social para Infomáticos - Informatics Social Network
+          br
+          li Esta aplicação visa tornar mais fácil a partilha de informação entre alunos e docentes de Engenharia Informática
+          br
+          li Todo o código de desenvolvimento realizado em NodeJS.
+          br
+          li Gramática de Suporte de Registo de utilizadores desenvolvida em ANTLR.
+          br
+          li Criadores Rafael Silva, Ricardo Pereria, Bruno Sousa.
+          br
+          li Trabalho realizado no âmbito do Perfil de Processamento de Linguagens e Conhecimento Unidade Curricular de Processamento e Representação da Informação
+             | do 4º Ano do Mestrado Integrado em Engenharia Informática.   
+  .w3-container.w3-center.w3-bottom
+    footer.w3-container.w3-teal
+       address Informatics Social Network by RS/BS/RP copyrights reserved.
+
+

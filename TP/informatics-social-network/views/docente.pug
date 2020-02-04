@@ -1,0 +1,191 @@
+extends layout
+
+block content
+  .w3-container.w3-center.w3-jumbo
+    header.w3-container.w3-teal
+      h1 Informatics Social Network
+  .w3-container.w3-large
+     .w3-bar.w3-dark-grey.w3-mobile
+      .w3-bar-item
+            form.w3-container(action='/docente', method='GET')
+                input.w3-button.w3-wide(type= 'submit', value= 'Inicio') 
+      .w3-bar-item.w3-right
+        form.w3-container(action='/logout', method='GET')
+            input.w3-button.w3-wide(type= 'submit', value= 'Logout')
+  .w3-container
+            .w3-row
+                .w3-col.m4.l3       
+                    .w3-side-bar.w3-bar-block.w3-large.w3-dark-grey
+                        .w3-bar-item.w3-center
+                          h2 
+                            b Perfil
+                          ul.w3-ul
+                            li 
+                              form.w3-container(action='/docente/perfil',method='GET')
+                                input.w3-btn.w3-hover-grey(type='submit',value='Consultar')
+                        hr
+                        .w3-bar-item.w3-center
+                            h2
+                              b Publicações
+                            ul.w3-ul
+                              li
+                                form.w3-container(action='/docente/publicacoes/listar',method='GET')
+                                    input.w3-btn.w3-hover-grey(type='submit',value='Listar')
+                              li
+                                form.w3-container(action='/docente/publicacoes/registo',method='GET')
+                                  input.w3-btn.w3-hover-grey(type='submit',value='Inserir')
+                        hr
+                        .w3-bar-item.w3-center
+                            h2 
+                              b Eventos
+                            ul.w3-ul
+                              li
+                                form.w3-container(action='/docente/eventos/listar',method='GET')
+                                    input.w3-btn.w3-hover-grey(type='submit',value='Listar')
+                              li
+                                form.w3-container(action='/docente/eventos/registo',method='GET')
+                                  input.w3-btn.w3-hover-grey(type='submit',value='Inserir')
+                        hr
+                        .w3-bar-item.w3-center 
+                          h2
+                            b Exportar
+                          ul.w3-ul
+                            li
+                                form.w3-container(action='/docente/exportar',method='GET')
+                                    input.w3-btn.w3-hover-grey(type='submit',value='Exportar dados')
+                        hr
+
+                .w3-col.m8.l9
+                  h3.w3-center Bem-Vindo Docente!   
+                  if ( publicacoes )
+                    if ( publicacoes.length > 0)
+                      .w3-card-4
+                        header.w3-grey.w3-center
+                            h2.w3-text-white Lista de Publicações
+                        .w3-container
+                            .w3-row
+                                .w3-col.m8.l9.w3-responsive
+                                  each p in publicacoes
+                                    li
+                                      if (p.visivilidade == 0)
+                                        a(href=`/docente/publicacoes/${p._id}`)= p.titulo + " :: Pública"
+                                      else if (p.visivilidade == 2)
+                                        a(href=`/docente/publicacoes/${p._id}`)= p.titulo + " :: Docentes"
+                                      else if (p.visivilidade == 3)
+                                        a(href=`/docente/publicacoes/${p._id}`)= p.titulo + " :: Alunos/Docente"
+                                      p= "Curso: " + p.curso
+                                      i= p.data
+                                      p= "Descrição: " + p.descricao
+                                      form.w3-container(action=`/docente/publicacoes/gosto?id=${p._id}` method='POST')
+                                        input.w3-blue-grey.w3-round(type="submit" value="Gosto ("+p.gostos.length+")")
+                                      hr
+
+                                .w3-col.m4.l3.w3-right
+                                   ul.w3-ul.w3-center
+                                    li
+                                      form.w3-container(method="GET" action="/docente/publicacoes/listar/titulo")
+                                        input.w3-input.w3-border(type="text" name="titulo" placeholder="Titulo")
+                                        br
+                                        input.w3-btn.w3-black(type= "submit" value= "Listar Por Titulo" id= 'listarTitulo') 
+                                      hr
+                                      form.w3-container(method="GET" action="/docente/publicacoes/listar/curso")
+                                        input.w3-input.w3-border(type="text" name="curso" placeholder="Curso")
+                                        br
+                                        input.w3-btn.w3-black(type= "submit" value= "Listar Por Curso" id= 'listarCurso') 
+                                      hr
+                                      form.w3-container(method="GET" action="/docente/publicacoes/listar/data")
+                                        input.w3-input.w3-border(type="text" name="data" placeholder="Data")
+                                        br
+                                        input.w3-btn.w3-black(type= "submit" value= "Listar por Data" id= 'listarData') 
+                                      hr
+                                      form.w3-container(method="GET" action="/docente/publicacoes/listar/visivilidade")
+                                        select.w3-input.w3-border(name="visivilidade")
+                                          option(value="-1") -Visivilidade-
+                                          option(value="0") Pública
+                                          option(value="2") Docentes
+                                          option(value="3") Aluno/Docentes
+                                        br
+                                        input.w3-btn.w3-black(type= "submit" value= "Visivilidade" id= 'listarVisivilidade') 
+                    else 
+                      .w3-card-4
+                          header.w3-grey.w3-center
+                              h2.w3-text-white Lista de Publicações
+                          .w3-container
+                            h3.w3-text-grey Não existem publicações
+                  
+                  if ( eventos )
+                    if ( eventos.length > 0)
+                      .w3-card-4
+                        header.w3-grey.w3-center
+                            h2.w3-text-white Lista de Eventos
+                        .w3-container
+                            .w3-row
+                                .w3-col.m8.l9.w3-responsive
+                                    each e in eventos
+                                      li 
+                                        if (e.visivilidade == 0)
+                                          a(href=`/docente/eventos/${e._id}`)= e.titulo + " :: Pública"
+                                        else if (e.visivilidade == 2)
+                                          a(href=`/docente/eventos/${e._id}`)= e.titulo + " :: Docentes"
+                                        else if (e.visivilidade == 3)
+                                          a(href=`/docente/eventos/${e._id}`)= e.titulo + " :: Alunos/Docentes"
+                                        h6= "Data: " + e.data
+                                        h6= "Local: " + e.local
+                                        i= "Tipo: " + e.tipo
+                                        if (e.duracao)
+                                          h6= "Duração: " + e.duracao
+                                        if (e.uc)
+                                          h6= "UC: " + e.uc
+                                        form.w3-container.w3-center(action=`/docente/eventos/comparecer?id=${e._id}` method='POST')
+                                          input.w3-blue-grey.w3-round(type="submit" value="Ir a evento (pressionar de novo para remover)")
+                                        hr
+
+                                .w3-col.m4.l3.w3-right
+                                    ul.w3-ul.w3-center
+                                        li
+                                          form.w3-container(method="GET" action="/docente/eventos/listar/titulo")
+                                            input.w3-input.w3-border(type="text" name="titulo" placeholder="Titulo")
+                                            br
+                                            input.w3-btn.w3-black(type= "submit" value= "Listar por Titulo" id= 'listarTitulo') 
+                                          hr
+                                          form.w3-container(method="GET" action="/docente/eventos/listar/uc")
+                                            input.w3-input.w3-border(type="text" name="uc" placeholder="UC")
+                                            br
+                                            input.w3-btn.w3-black(type= "submit" value= "Listar por UC" id= 'listarUC') 
+                                          hr
+                                          form.w3-container(method="GET" action="/docente/eventos/listar/visivilidade")
+                                            select.w3-input.w3-border(name="visivilidade")
+                                              option(value="-1") -Visivilidade-
+                                              option(value="0") Pública
+                                              option(value="2") Docentes
+                                              option(value="3") Alunos/Docentes
+                                            br
+                                            input.w3-btn.w3-black(type= "submit" value= "Visivilidade" id= 'listarVisivilidade') 
+                                          hr
+                                          form.w3-container(method="GET" action="/docente/eventos/listar/tipo")
+                                            select.w3-input.w3-border(name="tipo")
+                                              option(value="Tipo") -Tipo-
+                                              option(value="Teste-Exame") Teste-Exame
+                                              option(value="Evento Científico") Evento Científico
+                                              option(value="Album Fotografia") Album Fotografia
+                                              option(value="Reunião") Reunião
+                                            br
+                                            input.w3-btn.w3-black(type= "submit" value= "Listar por Tipo" id= 'listarTipo')
+                                          hr
+                                          form.w3-container(method="GET" action="/docente/eventos/listar/data")
+                                            input.w3-input.w3-border(type="text" name="data" placeholder="Data")
+                                            br
+                                            input.w3-btn.w3-black(type= "submit" value= "Listar por Data" id= 'listarData') 
+                                          br
+                    else 
+                      .w3-card-4
+                          header.w3-grey.w3-center
+                              h2.w3-text-white Lista de Eventos
+                          .w3-container
+                            h3.w3-text-grey Não existem eventos
+                
+  .w3-container.w3-center.w3-bottom
+    footer.w3-container.w3-teal
+       address Informatics Social Network by RS/BS/RP copyrights reserved.
+
+

@@ -1,0 +1,20 @@
+-------------------------------------------- Registo -------------------------------------------
+
+Para efetuar o registo devidamente, preencha os campos substituando os espacos para o efeito.
+No final faca upload do ficheiro na plataforma.
+
+------------------------------------------- Registo --------------------------------------------
+
+Nome: Ricardo Pereira
+
+Email: ricardo@hotmail.com
+
+Cidade: Braga
+
+Curso: MIEI
+
+Password: sdf*A342-_@Dad!#
+
+Tipo de Utilizador (aluno ou docente): aluno
+
+Genero (masculino ou feminino): masculino

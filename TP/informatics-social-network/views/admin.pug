@@ -1,0 +1,200 @@
+extends layout
+
+block content
+  .w3-container.w3-center.w3-jumbo
+    header.w3-container.w3-teal
+      h1 Informatics Social Network
+  .w3-container.w3-large
+     .w3-bar.w3-dark-grey.w3-mobile
+      .w3-bar-item
+            form.w3-container(action='/admin', method='GET')
+                input.w3-button.w3-wide(type= 'submit', value= 'Inicio') 
+      .w3-bar-item.w3-right
+        form.w3-container(action='/logout', method='GET')
+            input.w3-button.w3-wide(type= 'submit', value= 'Logout')
+  .w3-container
+            .w3-row
+                .w3-col.m4.l3       
+                    .w3-side-bar.w3-bar-block.w3-large.w3-dark-grey
+                        .w3-bar-item.w3-center
+                          h2 
+                            b Utilizadores
+                          ul.w3-ul
+                            li 
+                              form.w3-container(action='/admin/utilizadores/listar',method='GET')
+                                input.w3-btn.w3-hover-grey(type='submit',value='Listar')
+                        hr
+                        .w3-bar-item.w3-center
+                            h2
+                              b Eventos
+                            ul.w3-ul
+                              li
+                                form.w3-container(action='/admin/eventos/listar',method='GET')
+                                    input.w3-btn.w3-hover-grey(type='submit',value='Listar')
+                        hr
+                        .w3-bar-item.w3-center
+                            h2 
+                              b Publicações
+                            ul.w3-ul
+                              li
+                                form.w3-container(action='/admin/publicacoes/listar',method='GET')
+                                    input.w3-btn.w3-hover-grey(type='submit',value='Listar')
+                        hr
+                .w3-col.m8.l9
+                  h3.w3-center Bem-Vindo Admnistrador!
+                  if ( utilizadores )
+                    .w3-card-4
+                      header.w3-grey.w3-center
+                          h2.w3-text-white Lista de Utilizadores
+                      .w3-container
+                          .w3-row
+                              .w3-col.m8.l9.w3-responsive
+                                  table.w3-table-all
+                                      tr
+                                          th Email
+                                          th Nome
+                                          th Tipo
+                                          th Curso
+                                          th Estado
+                                      each u in utilizadores
+                                          tr
+                                            td
+                                              a(href=`mailto:${u.email}`)= u.email
+                                            td= u.nome
+                                            td= u.tipoUtilizador
+                                            td= u.curso
+                                            td 
+                                              if ( u.ativo == 0)
+                                                form(method="POST" action="/admin/utilizadores/atualizar/estado/"+u.email)
+                                                  input.w3-green.w3-round(type= "submit" value= "Ativar")
+                                              else 
+                                                form(method="POST" action="/admin/utilizadores/atualizar/estado/"+u.email)
+                                                  input.w3-black.w3-round(type= "submit" value= "Desativar")
+      
+                              .w3-col.m4.l3.w3-right
+                                  ul.w3-ul.w3-center
+                                      li
+                                        form.w3-container(method="POST" action="/admin/utilizadores/remover")
+                                          input.w3-input.w3-border(type="text" name="email" placeholder="Email")
+                                          br
+                                          input.w3-btn.w3-black(type= "submit" value= "Remover" id= 'remover')
+                                      li
+                                        form.w3-container(method="GET" action="/admin/utilizadores/atualizar")
+                                          input.w3-input.w3-border(type="text" name="email" placeholder="Email")
+                                          br
+                                          input.w3-btn.w3-black(type="submit" value="Atualizar" id='atualizar')
+                                      li
+                                        form.w3-container(method="GET" action="/admin/utilizadores/listar/tipo")
+                                          select.w3-input.w3-border(name="tipo")
+                                            option(value="None") -Tipo- 
+                                            option(value="Aluno") Aluno 
+                                            option(value="Docente") Docente
+                                            option(value="Admin") Admin
+                                          br
+                                          input.w3-btn.w3-black(type= "submit" value= "Listar Por Tipo" id= 'listarTipo')
+                  
+                  if ( publicacoes )
+                    if ( publicacoes.length > 0)
+                      .w3-card-4
+                        header.w3-grey.w3-center
+                            h2.w3-text-white Lista de Publicacoes
+                        .w3-container
+                            .w3-row
+                                .w3-col.m8.l9.w3-responsive
+                                    table.w3-table-all
+                                        tr
+                                            th Publicação
+                                            th Titulo
+                                            th Visivilidade
+                                            th Curso
+                                            th Utilizador
+                                        each p in publicacoes
+                                            tr
+                                              td= p._id
+                                              td
+                                                a(href=`/admin/publicacoes/${p._id}`)= p.titulo
+                                                if (p.visivilidade == 0)
+                                                  td Pública
+                                                else if (p.visivilidade == 1)
+                                                    td Alunos
+                                                else if (p.visivilidade == 2)
+                                                    td Docentes
+                                                else 
+                                                    td Todos
+                                              td= p.curso
+                                              td
+                                                a(href=`/admin/utilizadores/atualizar?email=${p.email_utilizador}`)= p.email_utilizador
+      
+                                .w3-col.m4.l3.w3-right
+                                    ul.w3-ul.w3-center
+                                        li
+                                            form.w3-container(method="POST" action="/admin/publicacoes/remover")
+                                                input.w3-input.w3-border(type="text" name="id" placeholder="Publicacao")
+                                                br
+                                                input.w3-btn.w3-black(type= "submit" value= "Remover" id= 'remover')
+                                        li
+                                            form.w3-container(method="GET" action="/admin/publicacoes/listar/tipo")
+                                                input.w3-input.w3-border(type="text" name="tipo" placeholder="Tipo")
+                                                br
+                                                input.w3-btn.w3-black(type= "submit" value= "Listar Por Tipo" id= 'listarTipo') 
+                    else 
+                      .w3-card-4
+                          header.w3-grey.w3-center
+                              h2.w3-text-white Lista de Publicacoes
+                          .w3-container
+                            h3.w3-text-grey Não existem publicações
+                  
+                  if ( eventos )
+                    if ( eventos.length > 0)
+                      .w3-card-4
+                        header.w3-grey.w3-center
+                            h2.w3-text-white Lista de Eventos
+                        .w3-container
+                            .w3-row
+                                .w3-col.m8.l9.w3-responsive
+                                    table.w3-table-all
+                                        tr  
+                                            th Evento
+                                            th Titulo
+                                            th Tipo
+                                            th UC
+                                            th Utilizador
+                                        each e in eventos
+                                            tr
+                                              td
+                                                a(href=`/admin/eventos/${e._id}`)= e._id
+                                              td= e.titulo
+                                              td= e.tipo
+                                              td= e.uc
+                                              td
+                                                a(href=`/admin/utilizadores/atualizar?email=${e.email_utilizador}`)= e.email_utilizador
+      
+                                .w3-col.m4.l3.w3-right
+                                    ul.w3-ul.w3-center
+                                        li
+                                          form.w3-container(method="POST" action="/admin/eventos/remover")
+                                              input.w3-input.w3-border(type="text" name="id" placeholder="Evento")
+                                              br
+                                              input.w3-btn.w3-black(type= "submit" value= "Remover" id= 'remover')
+                                        li
+                                          form.w3-container(method="GET" action="/admin/eventos/listar/tipo")
+                                              input.w3-input.w3-border(type="text" name="tipo" placeholder="Tipo")
+                                              br
+                                              input.w3-btn.w3-black(type= "submit" value= "Listar Por Tipo" id= 'listarTipo')
+                                        li
+                                          form.w3-container(method="GET" action="/admin/eventos/listar/utilizador")
+                                              input.w3-input.w3-border(type="text" name="email" placeholder="Email")
+                                              br
+                                              input.w3-btn.w3-black(type= "submit" value= "Listar Por User" id= 'listarUser')  
+                    else 
+                      .w3-card-4
+                          header.w3-grey.w3-center
+                              h2.w3-text-white Lista de Eventos
+                          .w3-container
+                            h3.w3-text-grey Não existem eventos
+                
+  .w3-container.w3-center.w3-bottom
+    footer.w3-container.w3-teal
+       address Informatics Social Network by RS/BS/RP copyrights reserved.
+
+

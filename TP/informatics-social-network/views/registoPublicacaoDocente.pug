@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  .w3-container.w3-center.w3-jumbo
+    header.w3-container.w3-teal
+      h1 Informatics Social Network
+  .w3-container.w3-large
+        .w3-bar.w3-dark-grey.w3-mobile
+            .w3-bar-item
+                form.w3-container(action='/docente', method='GET')
+                    input.w3-button.w3-wide(type= 'submit', value= 'Inicio')
+            .w3-bar-item.w3-right
+                form.w3-container(action='/logout', method='GET')
+                    input.w3-button.w3-wide(type= 'submit', value= 'Logout')
+  .w3-container  
+    .w3-card-4
+        header.w3-grey.w3-center
+            h2.w3-text-white Registo de Publicação
+        if message
+            .w3-container.w3-center
+                h3 Informação
+                p.red= message
+        .w3-container
+            form.w3-container(method="POST" action="/docente/publicacao" enctype="multipart/form-data")
+                input.w3-input(type="text" name="titulo" placeholder="Titulo")
+                br
+                input.w3-input(type="text" name="curso" placeholder="Curso")
+                br
+                textarea.w3-input.w3-border.w3-light-grey(type="text" name='descricao' placeholder="Descricão")
+                label.w3-label(id='message') 
+                br
+                h5.w3-center Visivilidade
+                table.w3-table-all.w3-center
+                    tr
+                        td
+                            label.w3-text-pale-green
+                                b Pública
+                                | &nbsp;
+                                | &nbsp;
+                                input.w3-btn.w3-light-grey(type='radio', name='visivilidade',id= 'type',value='0')
+                        td
+                            label.w3-text-pale-green
+                                b Privada (para docentes)
+                                | &nbsp;
+                                | &nbsp;
+                                input.w3-btn.w3-light-grey(type='radio', name='visivilidade',id= 'type',value='2')
+                        td
+                            label.w3-text-pale-green
+                                b Alunos e Docentes
+                                | &nbsp;
+                                | &nbsp;
+                                input.w3-btn.w3-light-grey(type='radio', name='visivilidade',id= 'type',value='3')
+                br
+                label.w3-cell Ficheiros
+                .w3-container(id='lista')
+                    .w3-container(id='f1')
+                        br
+                        button.w3-button.w3-round-large.w3-grey(id='mais1') Adicionar ficheiro
+                br
+                br
+                input.w3-btn.w3-black(type="submit" value="Registar" id='adicionar')               
+                br
+                br
+    .w3-container.w3-center.w3-bottom
+    footer.w3-container.w3-teal.w3-center
+        address Informatics Social Network by RS/BS/RP copyrights reserved.  
