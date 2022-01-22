@@ -12,7 +12,7 @@
     "http-errors": "~1.6.3",
     "jsonfile": "^5.0.0",
     "morgan": "~1.9.1",
-    "nanoid": "^2.1.6",
+    "nanoid": "^3.1.31",
     "pug": "2.0.0-beta11"
   }
 }
